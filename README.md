@@ -11,7 +11,7 @@
 
 - 💬 Ask me about **Basic - Docker | Jenkins | AWS | Linux**
 
-- 📫 How to reach me **itsjv007@gmail.com**
+- 📫 How to reach me **er.janakverma@gmail.com**
 
 - ⚡ Fun fact **I love binge watching**
 
