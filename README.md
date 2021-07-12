@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Janak Prasad Verma</h1>
+<h1 align="center">Hi 👋, I'm Janak Verma</h1>
 <h3 align="center">DevOps Engineer Interested in Linux | Cloud| Docker | Jenkins | AWS | Python</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=itsjv&label=Profile%20views&color=0e75b6&style=flat" alt="janakverma" /> </p>
