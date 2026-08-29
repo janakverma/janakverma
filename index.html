@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janak Verma | Senior DevOps & Cloud Engineer</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg-main: #0b0f19;
+      --bg-card: #111827;
+      --bg-card-hover: #1f2937;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --accent-green: #34d399;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border-color: #374151;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Fira Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+    }
+
+    .logo {
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 0 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 9999px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      width: fit-content;
+    }
+
+    .hero-badge .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 8px var(--accent-green);
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 750px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg-main);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background: #7dd3fc;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      background: var(--bg-card);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Section Styling */
+    section {
+      padding: 4rem 0;
+      border-top: 1px solid rgba(55, 65, 81, 0.5);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+      font-family: var(--font-mono);
+      color: var(--text-main);
+    }
+
+    .section-title span {
+      color: var(--accent);
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 0.35rem 0.65rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      border-left: 2px solid var(--border-color);
+      margin-left: 1rem;
+      padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: calc(-2rem - 6px);
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-role {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .timeline-company {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .timeline-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .timeline-bullets {
+      list-style-type: none;
+      margin-top: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .timeline-bullets li {
+      position: relative;
+      padding-left: 1.2rem;
+      font-size: 0.93rem;
+      color: #cbd5e1;
+    }
+
+    .timeline-bullets li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Certifications & Education */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .cert-badge {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .cert-badge i {
+      font-size: 2rem;
+      color: #ef4444;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-socials a {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-socials a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.3rem; }
+      .two-col-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">&lt;JanakVerma /&gt;</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="hero" id="about">
+      <div class="hero-badge">
+        <span class="status-dot"></span> Available for Cloud & DevOps Challenges
+      </div>
+      <h1>Hi, I'm <span>Janak Verma</span>.</h1>
+      <p>
+        DevOps Engineer with extensive experience in architecting, automating, and scaling multi-cloud infrastructure (AWS & Azure). Specializing in Kubernetes orchestration, CI/CD automation pipelines, Infrastructure as Code (Terraform), and robust observability.
+      </p>
+      <div class="hero-cta">
+        <a href="mailto:er.janakverma@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Get In Touch</a>
+        <a href="https://github.com" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://linkedin.com" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title"><span>01.</span> Technical Stack</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-header">
+            <i class="fas fa-cloud"></i>
+            <span>Cloud & Core Infra</span>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">AWS (EC2, S3, RDS, IAM, VPC, Route53)</span>
+            <span class="tag">Azure (VM, Blob, NAT GW)</span>
+            <span class="tag">CloudFlare</span>
+            <span class="tag">Linux</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <i class="fas fa-dharmachakra"></i>
+            <span>Containers & Orchestration</span>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Kubernetes</span>
+            <span class="tag">AWS EKS</span>
+            <span class="tag">Azure AKS</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Helm</span>
+            <span class="tag">Karpenter Autoscaling</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <i class="fas fa-code-branch"></i>
+            <span>CI/CD & Automation</span>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Terraform (IaC)</span>
+            <span class="tag">Ansible</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">Azure DevOps</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">TeamCity</span>
+            <span class="tag">Spinnaker</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <i class="fas fa-chart-line"></i>
+            <span>Observability & Security</span>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Prometheus</span>
+            <span class="tag">Grafana</span>
+            <span class="tag">ELK Stack (Elasticsearch, Kibana, Logstash)</span>
+            <span class="tag">cert-manager</span>
+            <span class="tag">Auth0 / Okta SSO</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <i class="fas fa-terminal"></i>
+            <span>Scripting & Languages</span>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Bash</span>
+            <span class="tag">Groovy</span>
+            <span class="tag">YAML</span>
+            <span class="tag">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <i class="fas fa-server"></i>
+            <span>Web Servers & AI Ops</span>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Nginx</span>
+            <span class="tag">Apache</span>
+            <span class="tag">Reverse Proxies</span>
+            <span class="tag">Azure OpenAI</span>
+            <span class="tag">Computer Vision</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2 class="section-title"><span>02.</span> Professional Experience</h2>
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div class="timeline-role">DevOps Engineer <span class="timeline-company">@ Syndigo LLC</span></div>
+            <div class="timeline-meta">March 2023 – Present | Remote</div>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Orchestrated multi-cloud infrastructure across AWS and Azure, including a successful full-scale migration from AWS to Azure.</li>
+            <li>Managed Kubernetes clusters (EKS, AKS) and implemented cost-saving compute autoscaling using Karpenter for Spot and On-Demand fleets.</li>
+            <li>Delivered Infrastructure as Code (IaC) pipelines with Terraform, improving multi-environment consistency and deployment velocity.</li>
+            <li>Deployed AI/ML-driven services by operationalizing NLP and OCR workloads with Azure Computer Vision and Azure OpenAI.</li>
+            <li>Strengthened identity and access security with Auth0 and Okta SSO integrations across core enterprise applications.</li>
+            <li>Automated end-to-end TLS/SSL certificate lifecycles using <code>cert-manager</code> and provisioned private network fabrics via NAT Gateways and Private DNS.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div class="timeline-role">DevOps Engineer <span class="timeline-company">@ Shiprocket</span></div>
+            <div class="timeline-meta">Oct 2021 – Feb 2023 | Gurugram, India</div>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Upgraded legacy standalone infrastructure into modernized, containerized Kubernetes setups managed with Helm charts.</li>
+            <li>Automated Linux server maintenance and database administration using Ansible playbooks and Jenkins pipelines.</li>
+            <li>Managed core AWS services (EC2, VPC, Route53, RDS, ALB, IAM, CloudWatch) ensuring high availability and uptime.</li>
+            <li>Built complete monitoring and logging visibility using Prometheus, Grafana, NodeExporter, and the ELK stack.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div class="timeline-role">DevOps Engineer Intern <span class="timeline-company">@ Shiprocket</span></div>
+            <div class="timeline-meta">July 2021 – Oct 2021 | Gurugram, India</div>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Supported staging and testing environments with automated Jenkins pipelines and Ansible configuration for MySQL/PostgreSQL databases.</li>
+            <li>Maintained Nginx/Apache reverse proxies and optimized custom Docker images across microservices.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div class="timeline-role">DevOps Engineer Intern <span class="timeline-company">@ Alyssum Global Services</span></div>
+            <div class="timeline-meta">Feb 2021 – July 2021 | Noida, India</div>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Integrated GitLab OAuth authentication with Jenkins CI runners on Linux nodes for secure deployments.</li>
+            <li>Configured automated infrastructure alerting in Grafana to resolve operational bottlenecks proactively.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="certifications">
+      <h2 class="section-title"><span>03.</span> Credentials & Education</h2>
+      <div class="two-col-grid">
+        
+        <div class="info-card">
+          <h3 style="margin-bottom: 1rem; color: var(--accent);"><i class="fas fa-certificate"></i> Certification</h3>
+          <div class="cert-badge">
+            <i class="fab fa-redhat"></i>
+            <div>
+              <strong>RedHat Certified Engineer (RHCE)</strong>
+              <p style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 0.2rem;">
+                Credential ID: 220-189-302<br>Issued: June 2024
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3 style="margin-bottom: 1rem; color: var(--accent);"><i class="fas fa-graduation-cap"></i> Education</h3>
+          <div>
+            <strong>Integrated B.Tech + M.Tech in Computer Science</strong>
+            <p style="color: var(--accent); font-size: 0.9rem;">Gautam Buddha University (2017 – 2022)</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+              Specialization: Artificial Intelligence & Robotics &bull; CGPA: 8.17
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" style="text-align: center;">
+      <h2 class="section-title" style="justify-content: center;"><span>04.</span> Connect</h2>
+      <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 2rem;">
+        Whether you want to discuss cloud architecture, Kubernetes optimization, or new career opportunities, feel free to reach out.
+      </p>
+      <a href="mailto:er.janakverma@gmail.com" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.9rem 2rem;">
+        <i class="fas fa-paper-plane"></i> er.janakverma@gmail.com
+      </a>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-socials">
+        <a href="mailto:er.janakverma@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <p>&copy; 2026 Janak Verma. Built with clean HTML/CSS.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
